@@ -2,16 +2,23 @@
 
 
 @section('content')
-<main class="container mt-4">
+<section class="container mt-4">
+@if(session()->has('message'))
+    <div class="alert alert-success">{{session()->get('message')}}</div>
+    @endif
+    <div class="d-flex justify-content-between align-items-center py-4">
+        <h1>Posts</h1>
+        <a href="{{route('admin.projects.create')}}" class="btn btn-light">Add new project</a>
+    </div>
     <h1 class="pt-5 pb-3">Projects</h1>
-    <table class="table">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Title</th>
                 <th scope="col">Content</th>
                 <th scope="col">Slug</th>
-                <th scope="col">Update At</th>
+                <th scope="col">Update at</th>
                 <th scope="col">Action</th>
             </tr>
         </thead>

@@ -40,7 +40,7 @@ class ProjectController extends Controller
         $form_data = $request->all();
         $form_data['slug'] = Project::generateSlug($form_data['title']);
         $newProject = Project::create($form_data);
-        return redirect()->route('admin.projects.show', compact('project'));
+        return redirect()->route('admin.projects.show', $newProject->slug)->with('message', 'New project created successfully');
     }
 
     /**
@@ -48,7 +48,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        dd($project);
+        //dd($project);
         return view('admin.projects.show', compact('project'));
     }
 
