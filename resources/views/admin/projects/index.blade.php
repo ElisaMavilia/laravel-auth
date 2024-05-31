@@ -15,7 +15,7 @@
         </thead>
         <tbody>
             @foreach ($projects as $project)
-                    <tr class="table table-dark table-striped-columns">
+                    <tr class="table table-striped-columns">
                         
                         <td>{{$project->id}}</td>
                         <td>{{$project->title}}</td>

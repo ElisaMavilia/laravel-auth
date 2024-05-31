@@ -1,6 +1,9 @@
 @extends('layouts.admin')
 
 @section('content')
+@section('title')
+
+@endsection
 <div class="container">
     <h2 class="fs-4 text-secondary my-4">
         {{ __('Dashboard') }}
