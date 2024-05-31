@@ -24,7 +24,6 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('projects', \App\Http\Controllers\Admin\ProjectController::class);
-    //Route::resource('comics', ComicController::class);
 });
 
 
