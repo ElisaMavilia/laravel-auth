@@ -3,7 +3,7 @@
 @section('content')
 @section('title', 'Dashboard')
 
-@endsection
+
 <div class="container">
     <h2 class="fs-4 text-secondary my-4">
         {{ __('Dashboard') }}

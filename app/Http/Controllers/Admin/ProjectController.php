@@ -35,7 +35,6 @@ class ProjectController extends Controller
             'title' => 'required|max:255',
             'content' => 'required',
             'cover_image' => 'image|nullable|',
-            'slug' => 'required',
         ]);
         $form_data = $request->all();
         $form_data['slug'] = Project::generateSlug($form_data['title']);
