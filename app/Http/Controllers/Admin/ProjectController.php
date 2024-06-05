@@ -5,7 +5,9 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Project;
 use Illuminate\Http\Request;
-use Storage;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\StorePostRequest;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
@@ -74,7 +76,7 @@ class ProjectController extends Controller
     {
         $form_data = $request->all();
         $project->update($form_data);
-        return redirect()->route('admin.projects.show', $project->slug)->with('message', 'Project {$project->title} updated successfully');
+        return redirect()->route('admin.projects.show', $project->slug)->with('message', '{$project->title} updated successfully');
     }
 
     /**
@@ -83,6 +85,6 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         $project->delete();
-        return redirect()->route('admin.projects.index')->with('message', 'Project' . $project->title . 'deleted successfully');
+        return redirect()->route('admin.projects.index')->with('message', '$project->title deleted successfully');
     }
 }
