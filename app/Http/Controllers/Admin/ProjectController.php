@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Storage;
 
 class ProjectController extends Controller
 {
@@ -38,8 +39,15 @@ class ProjectController extends Controller
         ]);
         $form_data = $request->all();
         $form_data['slug'] = Project::generateSlug($form_data['title']);
+        $path = Storage::put('uploads', $form_data['image']);
+        if ($request->hasFile('image')) {
+            $name = $request->image->getClientOriginalName();
+            $path = Storage::putFileAs('post_images', $request->image, $name);
+            $form_data['image'] = $path;
+        }
         $newProject = Project::create($form_data);
         return redirect()->route('admin.projects.show', $newProject->slug)->with('message', 'New project created successfully');
+    
     }
 
     /**

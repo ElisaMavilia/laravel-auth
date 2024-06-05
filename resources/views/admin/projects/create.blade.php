@@ -22,8 +22,7 @@
                 @error('image')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
-            </div>
-            <div class="mb
+            </div>            
           <div class="mb-3">
             <label for="content" class="form-label @error('title') is-invalid @enderror">Content</label>
            <textarea name="content" id="content" cols="30" rows="10" class="form-control">{{old('content')}}</textarea>
