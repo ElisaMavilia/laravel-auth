@@ -14,6 +14,7 @@
         <thead>
             <tr>
                 <th scope="col">Id</th>
+                <th scope="col">Image</th>
                 <th scope="col">Title</th>
                 <th scope="col">Content</th>
                 <th scope="col">Slug</th>
@@ -26,6 +27,7 @@
                     <tr class="table table-striped-columns">
                         
                         <td>{{$project->id}}</td>
+                        <td><img width="100" src="{{asset('storage/' . $project->image)}}" alt="{{$project->title}}"></td>
                         <td>{{$project->title}}</td>
                         <td>{{$project->content}}</td>
                         <td scope="row">{{$project->slug}}</td>
