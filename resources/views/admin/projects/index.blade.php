@@ -7,10 +7,9 @@
     <div class="alert alert-success">{{session()->get('message')}}</div>
     @endif
     <div class="d-flex justify-content-between align-items-center py-4">
-        <h1>Posts</h1>
-        <a href="{{route('admin.projects.create')}}" class="btn btn-light">Add new project</a>
+        <h1>Projects</h1>
+        <a href="{{route('admin.projects.create')}}" class="btn btn-warning">Add new project</a>
     </div>
-    <h1 class="pt-5 pb-3">Projects</h1>
     <table class="table table-striped">
         <thead>
             <tr>
