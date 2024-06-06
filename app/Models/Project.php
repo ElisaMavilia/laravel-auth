@@ -15,6 +15,7 @@ class Project extends Model
         'image',
         'content',
         'slug',
+        'category_id',
     ];
 
     public static function generateSlug($title)
@@ -26,5 +27,10 @@ class Project extends Model
             $count++;
         }
         return $slug;
+    }
+
+    public function category() // category va al singolare 
+    {
+        return $this->belongsTo(Category::class); //questo metodo serve per mappare la relazione inversa (molti a uno): rappresenta la relazione di dipendenza verso il Model principale (Project)
     }
 }

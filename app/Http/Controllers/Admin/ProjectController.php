@@ -37,7 +37,7 @@ class ProjectController extends Controller
         $request -> validate([
             'title' => 'required|max:255',
             'content' => 'required',
-            'cover_image' => 'image|nullable|',
+            'image' => 'image|nullable|',
         ]);
         $form_data = $request->all();
         $form_data['slug'] = Project::generateSlug($form_data['title']);
@@ -85,6 +85,6 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         $project->delete();
-        return redirect()->route('admin.projects.index')->with('message', '$project->title deleted successfully');
+        return redirect()->route('admin.projects.index')->with('message', $project->title .''. 'deleted successfully');
     }
 }
